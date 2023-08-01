@@ -1,4 +1,8 @@
+using AutoMapper;
 using LoginSimulator.DTOs;
+using LoginSimulator.Models;
+using LoginSimulator.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LoginSimulator.Controllers;
@@ -7,10 +11,21 @@ namespace LoginSimulator.Controllers;
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {
-    [HttpPost]
-    public IActionResult CreateUser(
-        [FromBody] CreateUserDTO dto)
+    [HttpPost("sign-up")]
+    public async Task<IActionResult> CreateUser(
+        [FromBody] CreateUserDTO dto,
+        [FromServices] UserService userService)
     {
-        throw new NotImplementedException();
+        var user = await userService.Create(dto);
+        return Created("", user);
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(
+        [FromServices] UserService userService,
+        [FromBody] LoginUserDTO dto)
+    {
+        await userService.Login(dto);
+        return Ok("User authenticated");
     }
 }
