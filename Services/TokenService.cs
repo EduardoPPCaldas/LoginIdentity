@@ -8,23 +8,33 @@ namespace LoginSimulator.Services;
 
 public class TokenService
 {
-    public Task GenerateToken(User user)
+    private readonly IConfiguration _configuration;
+
+    public TokenService(IConfiguration configuration)
     {
-        if(user.UserName is null) throw new ArgumentNullException("User with null username");
+        _configuration = configuration;
+    }
+
+    public string GenerateToken(User user)
+    {
+        if(user.UserName is null) throw new InvalidOperationException("User with null username");
 
         Claim[] claims = new Claim[]
         {
             new Claim("username", user.UserName),
             new Claim("id", user.Id),
-            new Claim(ClaimTypes.DateOfBirth, user.BirthDate.ToString())
+            new Claim(ClaimTypes.DateOfBirth, user.BirthDate.ToString()),
+            new Claim("loginTimestamp", DateTimeOffset.Now.ToString())
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Lul"));
+        var securityWord = _configuration.GetRequiredSection("SymmetricSecurityKey").Value ?? throw new InvalidOperationException("Key is null");
+
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityWord));
 
         var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(expires: DateTime.Now.AddMinutes(10), claims: claims, signingCredentials: signingCredentials);
 
-        return Task.CompletedTask;
+        return new JwtSecurityTokenHandler().WriteToken(token);
     }
 }

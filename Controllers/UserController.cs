@@ -25,7 +25,7 @@ public class UserController : ControllerBase
         [FromServices] UserService userService,
         [FromBody] LoginUserDTO dto)
     {
-        await userService.Login(dto);
-        return Ok("User authenticated");
+        var token = await userService.Login(dto);
+        return Ok(token);
     }
 }

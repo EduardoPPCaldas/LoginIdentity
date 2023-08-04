@@ -30,11 +30,23 @@ public class UserService
         throw new ApplicationException("Failed to create user");
     }
 
-    public async Task Login(LoginUserDTO dto)
+    public async Task<string> Login(LoginUserDTO dto)
     {
         var result = await _signInManager.PasswordSignInAsync(dto.Username, dto.Password, false, false);
         
         if(!result.Succeeded)
             throw new ApplicationException("User not authorized");
+        
+        var user = _signInManager
+            .UserManager
+            .Users
+            .FirstOrDefault(user => user.NormalizedUserName == dto.Username.ToUpper());
+        
+        if(user is null)
+            throw new InvalidOperationException("User not found");
+
+        var token = _tokenService.GenerateToken(user);
+
+        return token;
     }
 }

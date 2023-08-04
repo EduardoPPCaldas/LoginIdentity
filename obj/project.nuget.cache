@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "FaWtyuU4Gj9moekEWNrAzkO5yppk+gmuemQD9PsAkS1i47ZUKyk/14JQjGkbBjEfONSgKCgfXqI2KQGJlwO9kw==",
+  "dgSpecHash": "P8VzWf/xONu/U9BqEVZAUbt0RkvkXIL13Oi5xs19bf+lya4V9J7OA0q7LwJOVtcS5WhYzJQ07lp6zZV6rgGWXw==",
   "success": true,
   "projectFilePath": "/home/eduardo/dev/csharp/LoginSimulator/LoginSimulator.csproj",
   "expectedPackageFiles": [
     "/home/eduardo/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/eduardo/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/home/eduardo/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/home/eduardo/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.9/microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.aspnetcore.cryptography.internal/7.0.9/microsoft.aspnetcore.cryptography.internal.7.0.9.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/7.0.9/microsoft.aspnetcore.cryptography.keyderivation.7.0.9.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/7.0.9/microsoft.aspnetcore.identity.entityframeworkcore.7.0.9.nupkg.sha512",
@@ -34,6 +35,8 @@
     "/home/eduardo/.nuget/packages/microsoft.identitymodel.abstractions/6.32.1/microsoft.identitymodel.abstractions.6.32.1.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.identitymodel.jsonwebtokens/6.32.1/microsoft.identitymodel.jsonwebtokens.6.32.1.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.identitymodel.logging/6.32.1/microsoft.identitymodel.logging.6.32.1.nupkg.sha512",
+    "/home/eduardo/.nuget/packages/microsoft.identitymodel.protocols/6.15.1/microsoft.identitymodel.protocols.6.15.1.nupkg.sha512",
+    "/home/eduardo/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.15.1/microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.identitymodel.tokens/6.32.1/microsoft.identitymodel.tokens.6.32.1.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/eduardo/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
